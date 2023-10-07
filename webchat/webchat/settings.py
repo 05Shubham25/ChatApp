@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,6 +65,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'webchat.wsgi.application'
 ASGI_APPLICATION = "webchat.asgi.application"
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            #"hosts": [("127.0.0.1", 6379)],
+            "host" :[('redis://:o65ynhet4FjwZkOR001wS2ifh0G6n5v2@redis-13909.c265.us-east-1-2.ec2.cloud.redislabs.com:13909')]
+        },
+    },
+}
 
 CHANNEL_LAYERS = {
     "default": {
